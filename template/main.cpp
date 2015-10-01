@@ -12,6 +12,13 @@ void display(vector<T> array) {
     cout<<endl;
 }
 
+template <typename T>
+void display(vector<vector<T>>& array) {
+    for (int i = 0; i < array.size(); i++) {
+        display(array[i]);
+    }
+}
+
 class Solution {
 public:
 
