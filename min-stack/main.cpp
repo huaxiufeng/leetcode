@@ -22,17 +22,22 @@ public:
 class MinStack {
 public:
     void push(int x) {
-        int minval = x;
-        if (minstk.size() && minstk.top() < x) {
-            minval = minstk.top();
-        } 
+        if (minstk.size()) {
+            if (minstk.top() >= x) {
+                minstk.push(x);
+            }
+        } else {
+            minstk.push(x);
+        }
         valstk.push(x);
-        minstk.push(minval);
     }
 
     void pop() {
+        int x = valstk.top();
         valstk.pop();
-        minstk.pop();
+        if (minstk.top() == x) {
+            minstk.pop();
+        }
     }
 
     int top() {
