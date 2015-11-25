@@ -13,7 +13,7 @@ public:
         }
         cout<<endl;
     }
-
+/*
     vector< vector<int> > permute(vector<int>& nums) {
         cout<<"permuting ... ";
         display(nums);
@@ -33,6 +33,30 @@ public:
                 display(item);
                 res.push_back(item);
             } 
+        }
+        return res;
+    }
+*/
+    vector< vector<int> > permute(vector<int>& nums) {
+        cout<<"permuting ... ";
+        display(nums);
+        vector< vector<int> > res;
+        if (nums.size() == 1) {
+            res.push_back(nums);
+            return res;
+        }
+        
+        for (int i = 0; i < nums.size(); i++) {
+            swap(nums[0], nums[i]);
+            vector<int> nums0 = vector<int>(nums.begin()+1, nums.end());
+            vector< vector<int> > res0 = permute(nums0);
+            for (int j = 0; j < res0.size(); j++) {
+                res0[j].insert(res0[j].begin(), nums[0]);
+                res.push_back(res0[j]);
+                cout<<"push to result ";
+                display(res0[j]);
+            }
+            swap(nums[0], nums[i]);
         }
         return res;
     }
