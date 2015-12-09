@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <queue>
 #include <algorithm>
 using namespace std;
 
@@ -22,6 +23,19 @@ void display(vector<vector<T>>& array) {
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
+        priority_queue<int, vector<int>, greater<int>>
+            hp (nums.begin(), nums.begin()+k);
+        for (int i = k; i < nums.size(); i++) {
+            if (nums[i] <= hp.top()) {
+                continue;
+            }
+            hp.pop();
+            hp.push(nums[i]);
+        }
+        return hp.top();
+    }
+    /*
+    int findKthLargest(vector<int>& nums, int k) {
         vector<int> hp(nums.begin(), nums.begin()+k);
         make_heap(hp.begin(), hp.end(), greater<int>());
         for (int i = k; i < nums.size(); i++) {
@@ -33,6 +47,7 @@ public:
         }
         return hp.front();
     }
+    */
 };
 
 int main() {
@@ -41,7 +56,7 @@ int main() {
     cout<<"nums: ";display(nums);
 
     Solution s;
-    cout<<s.findKthLargest(nums, 3)<<endl;
+    cout<<s.findKthLargest(nums, 4)<<endl;
     return 0;
 }
 
