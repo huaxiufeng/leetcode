@@ -1,4 +1,4 @@
-CC   = g++ -g
+CC   = g++ -g -std=c++0x
 COMPILE  = $(CC) -c 
 LDFLAGS = 
 MAKEEXE   = $(CC)

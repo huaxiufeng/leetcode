@@ -30,6 +30,7 @@ void display(vector<T> array) {
 
 class Solution {
 public:
+    /*
     vector< vector<int> > comb(int begin, int end, int n) {
         vector< vector<int> > res;
         if (n == 1) {
@@ -52,11 +53,33 @@ public:
     vector< vector<int> > combine(int n, int k) {
         return comb(1, n, k);
     }
+    */
+
+    void comb(int begin, int end, int k, vector<int>& cur, vector<vector<int>>& res) {
+        if (k == 0) {
+            res.push_back(cur);
+            return;
+        }
+        if (end < begin) {
+            return;
+        }
+        cur.push_back(begin);
+        comb(begin+1, end, k-1, cur, res);
+        cur.pop_back();
+        comb(begin+1, end, k, cur, res);
+    }
+
+    vector<vector<int>> combine(int n, int k) {
+        vector<vector<int>> res;
+        vector<int> cur;
+        comb(1, n, k, cur, res);
+        return res;
+    }
 };
 
 int main() {
     Solution s;
-    vector< vector<int> > res = s.combine(88,30);
+    vector<vector<int>> res = s.combine(5,3);
     for (int i = 0; i < res.size(); i++) {
         display(res[i]);
     }
