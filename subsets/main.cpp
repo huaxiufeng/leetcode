@@ -35,6 +35,7 @@ void display(vector<T> array) {
 
 class Solution {
 public:
+/*
     vector< vector<int> > subsets0(int begin, int end, vector<int>& nums) {
         vector< vector<int> > res;
         if (begin == end) {
@@ -57,10 +58,33 @@ public:
         sort(nums.begin(), nums.end());
         return subsets0(0, nums.size()-1, nums);
     }
+*/
+    void subsetsImpl(vector<int>& nums, int index, int left, vector<int>& cur, vector< vector<int> >& res) {
+        if (left == 0) {
+            res.push_back(cur);
+            return;
+        }
+        if (index >= nums.size()) {
+            return;
+        }
+        cur.push_back(nums[index]);
+        subsetsImpl(nums, index+1, left-1, cur, res);
+        cur.pop_back();
+        subsetsImpl(nums, index+1, left, cur, res);
+    }
+    vector< vector<int> > subsets(vector<int>& nums) {
+        vector< vector<int> > res;
+        vector<int> cur;
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i <= nums.size(); i++) {
+            subsetsImpl(nums, 0, i, cur, res);
+        }
+        return res;
+    }
 };
 
 int main() {
-    int arr[] = {1,4,2,3};
+    int arr[] = {4,1,0};
     vector<int> nums(arr, arr+sizeof(arr)/sizeof(int));
     Solution s;
     vector< vector<int> > res = s.subsets(nums);
