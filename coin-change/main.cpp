@@ -108,7 +108,7 @@ public:
                     dp[i] = min(dp[i], dp[i - coins[j]] + 1);
                 }
             }
-        display(dp);
+            display(dp);
         }
         return dp[amount] > amount ? -1 : dp[amount];
     }
