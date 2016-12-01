@@ -1,5 +1,12 @@
+# C/C++
 *.o
 *.exe
 *.exe.*
 test
 test_case
+
+# Java
+out
+.idea
+*.class
+*.iml
