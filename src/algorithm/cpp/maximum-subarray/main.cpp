@@ -35,8 +35,8 @@ public:
             } else {
                 max_ending += nums[i];
             }
-
             max_so_far = max_so_far>max_ending?max_so_far:max_ending;
+            cout<<"max_ending "<<max_ending<<" max_so_far "<<max_so_far<<endl;
         }
 
         return max_so_far;
@@ -47,6 +47,7 @@ int main() {
     int arr[] = {-2,1,-3,4,-1,2,1,-5,4};
     //int arr[] = {-2,-1};
     vector<int> nums(arr, arr+sizeof(arr)/sizeof(int));
+    display(nums);
     Solution s;
     cout<<s.maxSubArray(nums)<<endl;
     return 0;

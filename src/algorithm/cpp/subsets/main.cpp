@@ -45,7 +45,7 @@ public:
             res.push_back(item);
             return res;
         }
-        
+
         vector< vector<int> > res0 = subsets0(begin+1, end, nums);
         for (int i = 0; i < res0.size(); i++) {
             res.push_back(res0[i]);
@@ -59,7 +59,7 @@ public:
         return subsets0(0, nums.size()-1, nums);
     }
 */
-    void subsetsImpl(vector<int>& nums, int index, int left, vector<int>& cur, vector< vector<int> >& res) {
+    void subsetsImpl(const vector<int>& nums, int index, int left, vector<int>& cur, vector< vector<int> >& res) {
         if (left == 0) {
             res.push_back(cur);
             return;
