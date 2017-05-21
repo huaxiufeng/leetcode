@@ -14,21 +14,6 @@ import java.util.List;
  */
 public class MergeIntervals {
 
-    public static class Interval {
-        int start;
-        int end;
-
-        Interval() {
-            start = 0;
-            end = 0;
-        }
-
-        Interval(int s, int e) {
-            start = s;
-            end = e;
-        }
-    }
-
     public List<Interval> merge(List<Interval> intervals) {
         if (null == intervals || intervals.size() <= 1) {
             return intervals;
