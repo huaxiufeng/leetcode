@@ -1,6 +1,10 @@
 package algorithm.java;
 
 /**
+ * Given a range [m, n] where 0 <= m <= n <= 2147483647, return the bitwise AND of all numbers in this range, inclusive.
+
+ For example, given the range [5, 7], you should return 4.
+
  * Created by huaxiufeng on 17/7/2.
  */
 public class BitwiseANDofNumbersRange {
