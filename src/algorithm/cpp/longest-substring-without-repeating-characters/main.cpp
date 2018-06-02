@@ -53,9 +53,9 @@ a  b  b  a
         memset(indextable, 0, sizeof(indextable));
         int *next = new int[len];
         int *first = new int[len];
-        indextable[str[len-1]] = len-1;
-        next[len-1] = len;
-        first[len-1] = len;
+        indextable[str[len-1]] = len-1; // 字符出现的位置
+        next[len-1] = len; // 该位置的字符下一次出现的位置
+        first[len-1] = len; // 从该位置开始，下一个开始出现重复字符的位置
         for (int i = len-2; i >= 0; i--) {
             if (indextable[str[i]] != 0) {
                 next[i] = indextable[str[i]];
