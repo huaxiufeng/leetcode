@@ -28,7 +28,7 @@ public class OddEvenLinkedList {
         OddEvenLinkedList solution = new OddEvenLinkedList();
         ListNode head = buildListNode();
         ListNode result = solution.oddEvenList(head);
-        ListNode.display(result);
+        System.out.println(result.toString());
     }
 
     private static ListNode buildListNode() {
