@@ -3,7 +3,7 @@ package algorithm.java;
 /**
  * Created by huaxiufeng on 18/10/8.
  */
-public class MaximumSubarray {
+public class LC53MaximumSubarray {
 
     public int maxSubArray(int[] nums) {
         if (null == nums || nums.length == 0) {
@@ -21,7 +21,7 @@ public class MaximumSubarray {
     }
 
     public static void main(String[] args) {
-        MaximumSubarray solution = new MaximumSubarray();
+        LC53MaximumSubarray solution = new LC53MaximumSubarray();
         System.out.println(solution.maxSubArray(new int[]{-2,1,-3,4,-1,2,1,-5,4}));
     }
 }
