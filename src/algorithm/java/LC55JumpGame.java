@@ -3,7 +3,7 @@ package algorithm.java;
 /**
  * Created by huaxiufeng on 18/10/4.
  */
-public class JumpGame {
+public class LC55JumpGame {
 
     public boolean canJump0(int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -38,7 +38,7 @@ public class JumpGame {
     }
 
     public static void main(String[] args) {
-        JumpGame solution = new JumpGame();
+        LC55JumpGame solution = new LC55JumpGame();
         System.out.println(solution.canJump(new int[]{0}));
         System.out.println(solution.canJump(new int[]{2,3,1,1,4}));
         System.out.println(solution.canJump(new int[]{3,2,1,0,4}));
