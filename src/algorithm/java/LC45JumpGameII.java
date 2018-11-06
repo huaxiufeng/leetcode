@@ -81,19 +81,21 @@ public class LC45JumpGameII {
 //        return pathLens[nums.length - 1];
 //    }
 
-    // TODO
+
     public int jump(int[] nums) {
-        int cnt = 0;
-        int cur = 0;
-        int next = 0;
+        int minJumpCount = 0; // 最少需要跳几次
+        int preMaxJumpPos = 0; // 上次最远跳到的位置
+        int maxJumpPos = 0; // maxJumpPos: 能到达的最远的位置
         for (int i = 0; i < nums.length; i++) {
-            if (i > cur) {
-                cur = next;
-                cnt++;
+            // 如果上次跳到的最远的位置都没办法到这个位置i
+            if (i > preMaxJumpPos) {
+                preMaxJumpPos = maxJumpPos;
+                minJumpCount++;
             }
-            next = Math.max(next, nums[i] + i);
+            // i + nums[i]: 从当前点能达到的最远的位置
+            maxJumpPos = Math.max(maxJumpPos, nums[i] + i);
         }
-        return cnt;
+        return minJumpCount;
     }
 
     public static void main(String[] args) {

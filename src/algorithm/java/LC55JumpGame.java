@@ -27,12 +27,14 @@ public class LC55JumpGame {
         if (nums == null || nums.length == 0) {
             return false;
         }
-        int maxJump = 0;
+        int maxJumpPos = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (maxJump < i) {
+            if (maxJumpPos < i) {
                 return false;
             }
-            maxJump = Math.max(maxJump, i + nums[i]);
+            // maxJumpPos: 能到达的最远的位置
+            // i + nums[i]: 从当前点能达到的最远的位置
+            maxJumpPos = Math.max(maxJumpPos, i + nums[i]);
         }
         return true;
     }
