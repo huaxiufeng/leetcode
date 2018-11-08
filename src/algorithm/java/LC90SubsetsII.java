@@ -1,30 +1,36 @@
 package algorithm.java;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by amyhuiye on 2018/11/9.
  */
-public class LC78Subsets {
+public class LC90SubsetsII {
 
-    public List<List<Integer>> subsets(int[] nums) {
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(nums);
         doSubsets(result, new ArrayList<>(), nums, 0);
         return result;
     }
 
     private void doSubsets(List<List<Integer>> result, List<Integer> temp, int[] nums, int index) {
         result.add(new ArrayList<>(temp));
-        for(int i = index; i < nums.length; i++){
+        Integer remove = null;
+        for (int i = index; i < nums.length; i++) {
+            if (remove != null && remove == nums[i]) {
+                continue;
+            }
             temp.add(nums[i]);
             doSubsets(result, temp, nums, i + 1);
-            temp.remove(temp.size() - 1);
+            remove = temp.remove(temp.size() - 1);
         }
     }
 
     public static void main(String[] args) {
-        LC78Subsets solution = new LC78Subsets();
-        System.out.println(solution.subsets(new int[]{1, 2, 3}));
+        LC90SubsetsII solution = new LC90SubsetsII();
+        System.out.println(solution.subsetsWithDup(new int[]{1, 2, 2}));
     }
 }
