@@ -3,26 +3,26 @@ package algorithm.java;
 /**
  * Created by huaxiufeng on 18/11/3.
  */
-public class RemoveDuplicatesFromSortedArray {
+public class LC26RemoveDuplicatesFromSortedArray {
 
     public int removeDuplicates(int[] nums) {
         if (null == nums || nums.length == 0) {
             return 0;
         }
         int index = 0;
-        for (int i = 0; i < nums.length;) {
+        for (int i = 0; i < nums.length; i++) {
             while (i < nums.length && nums[i] == nums[index]) {
                 i++;
             }
             if (i < nums.length) {
-                nums[++index] = nums[i++];
+                nums[++index] = nums[i];
             }
         }
         return index + 1;
     }
 
     public static void main(String[] args) {
-        RemoveDuplicatesFromSortedArray solution = new RemoveDuplicatesFromSortedArray();
+        LC26RemoveDuplicatesFromSortedArray solution = new LC26RemoveDuplicatesFromSortedArray();
         int[] nums = new int[]{0,1,2,3,4,5};
         int n = solution.removeDuplicates(nums);
         for (int i = 0; i < n; i++) {
