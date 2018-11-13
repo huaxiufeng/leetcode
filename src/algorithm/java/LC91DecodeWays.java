@@ -3,7 +3,7 @@ package algorithm.java;
 /**
  * Created by huaxiufeng on 18/10/4.
  */
-public class DecodeWays {
+public class LC91DecodeWays {
 
     public int numDecodings0(String s) {
         if (null == s) {
@@ -75,7 +75,7 @@ public class DecodeWays {
     }
 
     public static void main(String[] args) {
-        DecodeWays solution = new DecodeWays();
+        LC91DecodeWays solution = new LC91DecodeWays();
         System.out.println(solution.numDecodings("0"));
         System.out.println(solution.numDecodings("12"));
         System.out.println(solution.numDecodings("226"));
