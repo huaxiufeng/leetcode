@@ -65,7 +65,7 @@ public class LC115DistinctSubsequences {
 
     public static void main(String[] args) {
         LC115DistinctSubsequences solution = new LC115DistinctSubsequences();
-        System.out.println(solution.numDistinct("rabbbit", "rabbit"));
-        System.out.println(solution.numDistinct("babgbag", "bag"));
+        System.out.println(solution.numDistinct("rabbbit", "rabbit")); // 3
+        System.out.println(solution.numDistinct("babgbag", "bag")); // 5
     }
 }
