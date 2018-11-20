@@ -1,8 +1,5 @@
 package algorithm.java;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Given a string S and a string T, count the number of distinct subsequences of S which equals T.
 
@@ -45,7 +42,7 @@ import java.util.Map;
 
  * Created by huaxiufeng on 18/10/3.
  */
-public class DistinctSubsequences {
+public class LC115DistinctSubsequences {
 
     public int numDistinct(String s, String t) {
         if (null == s || null == t) {
@@ -67,7 +64,7 @@ public class DistinctSubsequences {
     }
 
     public static void main(String[] args) {
-        DistinctSubsequences solution = new DistinctSubsequences();
+        LC115DistinctSubsequences solution = new LC115DistinctSubsequences();
         System.out.println(solution.numDistinct("rabbbit", "rabbit"));
         System.out.println(solution.numDistinct("babgbag", "bag"));
     }
