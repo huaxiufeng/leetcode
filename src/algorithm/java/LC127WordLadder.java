@@ -12,7 +12,7 @@ import java.util.Set;
 /**
  * Created by amyhuiye on 2018/10/31.
  */
-public class WordLadder {
+public class LC127WordLadder {
 
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         Set<String> dict = new HashSet<>(wordList);
@@ -55,7 +55,7 @@ public class WordLadder {
     }
 
     public static void main(String[] args) {
-        WordLadder solution = new WordLadder();
+        LC127WordLadder solution = new LC127WordLadder();
         System.out.println(solution.ladderLength("hit", "cog", Arrays.asList("hot","dot","dog","lot","log","cog")));
         System.out.println(solution.ladderLength("hit", "cog", Arrays.asList("hot","dot","dog","lot","log")));
     }
