@@ -8,7 +8,7 @@ import algorithm.java.data.RandomListNode;
 /**
  * Created by huaxiufeng on 18/10/8.
  */
-public class CopyListwithRandomPointer {
+public class LC138CopyListWithRandomPointer {
 
     public RandomListNode copyRandomList(RandomListNode head) {
         if (null == head) {
@@ -43,7 +43,7 @@ public class CopyListwithRandomPointer {
     }
 
     public static void main(String[] args) {
-        CopyListwithRandomPointer solution = new CopyListwithRandomPointer();
+        LC138CopyListWithRandomPointer solution = new LC138CopyListWithRandomPointer();
         RandomListNode head = new RandomListNode(1);
         RandomListNode tail = new RandomListNode(2);
         head.random = tail;
