@@ -11,7 +11,7 @@ public class LC143ReorderList {
         if (null == head || null == head.next) {
             return;
         }
-        ListNode fast = head;
+        ListNode fast = head.next;
         ListNode slow = head;
         while (fast != null && fast.next != null) {
             fast = fast.next.next;
