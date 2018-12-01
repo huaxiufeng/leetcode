@@ -3,7 +3,7 @@ package algorithm.java;
 /**
  * Created by huaxiufeng on 18/12/1.
  */
-public class LC153FindMinimumInRotatedSortedArray {
+public class LC154FindMinimumInRotatedSortedArrayII {
 
     public int findMin(int[] nums) {
         if (null == nums || nums.length == 0) {
@@ -22,17 +22,18 @@ public class LC153FindMinimumInRotatedSortedArray {
             return nums[left];
         }
         int mid = (left + right) / 2;
-        if (nums[left] > nums[mid]) {
+        if (nums[left] > nums[mid]) { // 右边非递减
             return doFindMin(nums, left, mid);
-        } else {
+        } else if (nums[left] < nums[mid]) { // 左边非递减
             return doFindMin(nums, mid+1, right);
+        } else {
+            return Math.min(doFindMin(nums, left, mid), doFindMin(nums, mid+1, right));
         }
     }
 
     public static void main(String[] args) {
-        LC153FindMinimumInRotatedSortedArray solution = new LC153FindMinimumInRotatedSortedArray();
-        System.out.println(solution.findMin(new int[]{3,4,5,1,2})); // 1
-        System.out.println(solution.findMin(new int[]{4,5,6,7,0,1,2})); // 0
-        System.out.println(solution.findMin(new int[]{6,7,0,1,2,4,5})); // 0
+        LC154FindMinimumInRotatedSortedArrayII solution = new LC154FindMinimumInRotatedSortedArrayII();
+        System.out.println(solution.findMin(new int[]{2,2,2,0,1})); // 0
+        System.out.println(solution.findMin(new int[]{2,2,0,1,2})); // 0
     }
 }
