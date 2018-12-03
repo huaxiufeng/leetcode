@@ -5,7 +5,7 @@ import algorithm.java.data.ListNode;
 /**
  * Created by huaxiufeng on 18/10/8.
  */
-public class OddEvenLinkedList {
+public class LC328OddEvenLinkedList {
 
     public ListNode oddEvenList(ListNode head) {
         if (null == head) {
@@ -25,7 +25,7 @@ public class OddEvenLinkedList {
     }
 
     public static void main(String[] args) {
-        OddEvenLinkedList solution = new OddEvenLinkedList();
+        LC328OddEvenLinkedList solution = new LC328OddEvenLinkedList();
         ListNode head = buildListNode();
         ListNode result = solution.oddEvenList(head);
         System.out.println(result.toString());
