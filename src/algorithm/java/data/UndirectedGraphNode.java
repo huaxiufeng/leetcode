@@ -1,0 +1,17 @@
+package algorithm.java.data;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by huaxiufeng on 18/12/16.
+ */
+public class UndirectedGraphNode {
+    public int label;
+    public List<UndirectedGraphNode> neighbors;
+
+    public UndirectedGraphNode(int x) {
+        label = x;
+        neighbors = new ArrayList<>();
+    }
+}
