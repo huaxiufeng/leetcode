@@ -25,7 +25,7 @@ import java.util.Set;
 
  * Created by huaxiufeng on 17/7/30.
  */
-public class WordSearch2 {
+public class LC212WordSearchII {
 
     Set<String> result = new HashSet<>();
 
@@ -71,7 +71,7 @@ public class WordSearch2 {
     }
 
     public static void main(String[] args) {
-        WordSearch2 solution = new WordSearch2();
+        LC212WordSearchII solution = new LC212WordSearchII();
         char board[][] = {{'o','a','a','n'},{'e','t','a','e'},{'i','h','k','r'},{'i','f','l','v'}};
         String[] words = {"oath","pea","eat","rain"};
         System.out.println(solution.findWords(board, words));
