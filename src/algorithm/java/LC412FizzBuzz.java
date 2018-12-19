@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Write a program that outputs the string representation of numbers from 1 to n.
 
- But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.
+ But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “LC412FizzBuzz”.
 
  Example:
 
@@ -28,13 +28,13 @@ import java.util.List;
  "Fizz",
  "13",
  "14",
- "FizzBuzz"
+ "LC412FizzBuzz"
  ]
  Subscribe to see which companies asked this question.
  *
  * Created by huaxiufeng on 17/5/21.
  */
-public class FizzBuzz {
+public class LC412FizzBuzz {
 
     public List<String> fizzBuzz(int n) {
         List<String> result = new ArrayList<>();
@@ -44,7 +44,7 @@ public class FizzBuzz {
             } else if (i % 3 != 0 && i % 5 == 0) {
                 result.add("Buzz");
             } else if (i % 15 == 0) {
-                result.add("FizzBuzz");
+                result.add("LC412FizzBuzz");
             } else {
                 result.add(Integer.toString(i));
             }
@@ -53,7 +53,7 @@ public class FizzBuzz {
     }
 
     public static void main(String[] args) {
-        FizzBuzz solution = new FizzBuzz();
+        LC412FizzBuzz solution = new LC412FizzBuzz();
         System.out.println(solution.fizzBuzz(99));
     }
 }
