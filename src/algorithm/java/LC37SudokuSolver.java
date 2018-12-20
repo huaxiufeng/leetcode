@@ -1,15 +1,11 @@
 package algorithm.java;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 /**
  * Created by amyhuiye on 2018/12/20.
  */
 public class LC37SudokuSolver {
 
+    /*
     public void solveSudoku(char[][] board) {
         Set<Integer>[][] candidateBoard = new Set[board.length][board[0].length];
         int unknownCount = 0;
@@ -158,6 +154,53 @@ public class LC37SudokuSolver {
             }
         }
         return resultSet;
+    }
+    */
+
+    public void solveSudoku(char[][] board) {
+        boolean rowNums[][] = new boolean[9][9];
+        boolean columnNums[][] = new boolean[9][9];
+        boolean blockNums[][] = new boolean[9][9];
+
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                int block = i / 3 * 3 + j / 3;
+                if (board[i][j] != '.') {
+                    int value = board[i][j] - '1';
+                    rowNums[i][value] = true;
+                    columnNums[j][value] = true;
+                    blockNums[block][value] = true;
+                }
+            }
+        }
+        doSolveSudoku(board, rowNums, columnNums, blockNums, 0);
+    }
+
+    private boolean doSolveSudoku(char[][] board, boolean[][] rowNums, boolean[][] columnNums, boolean[][] blockNums, int index) {
+        if (index >= 81) {
+            return true;
+        }
+        int i = index / 9;
+        int j = index % 9;
+        int block = i / 3 * 3 + j / 3;
+        if (board[i][j] != '.') {
+            return doSolveSudoku(board, rowNums, columnNums, blockNums, index + 1);
+        } else {
+            for (char n = 0; n < 9; n++) {
+                if (rowNums[i][n] || columnNums[j][n] || blockNums[block][n]) {
+                    continue;
+                }
+                board[i][j] = (char)(n + '1');
+                rowNums[i][n] = columnNums[j][n] = blockNums[block][n] = true;
+                boolean res = doSolveSudoku(board, rowNums, columnNums, blockNums, index + 1);
+                if (res) {
+                    return true;
+                }
+                board[i][j] = '.';
+                rowNums[i][n] = columnNums[j][n] = blockNums[block][n] = false;
+            }
+            return false;
+        }
     }
 
     public static void main(String[] args) {
