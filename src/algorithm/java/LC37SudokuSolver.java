@@ -21,6 +21,7 @@ public class LC37SudokuSolver {
                 }
             }
         }
+        unknownCount = reduce(candidateBoard, board);
         resolve(candidateBoard, board, unknownCount);
     }
 
@@ -81,6 +82,50 @@ public class LC37SudokuSolver {
             }
         }
         return false;
+    }
+
+    private int reduce(Set<Integer>[][] candidateBoard, char[][] board) {
+        boolean removed = false;
+        for (int y = 0; y < board.length; y++) {
+            for (int x = 0; x < board[0].length; x++) {
+                if (null == candidateBoard[y][x] || candidateBoard[y][x].size() > 1) {
+                    continue;
+                }
+                int value = candidateBoard[y][x].iterator().next();
+                board[y][x] = (char)(value + '0');
+                candidateBoard[y][x] = null;
+
+                for (int i = 0; i < 9; i++) {
+                    if (candidateBoard[y][i] != null) {
+                        removed |= candidateBoard[y][i].remove(value);
+                    }
+                    if (candidateBoard[i][x] != null) {
+                        removed |= candidateBoard[i][x].remove(value);
+                    }
+                }
+                int startY = y / 3 * 3;
+                int startX = x / 3 * 3;
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        if (candidateBoard[startY+i][startX+j] != null) {
+                            removed |= candidateBoard[startY+i][startX+j].remove(value);
+                        }
+                    }
+                }
+            }
+        }
+        if (removed) {
+            reduce(candidateBoard, board);
+        }
+        int unknownCount = 0;
+        for (int y = 0; y < board.length; y++) {
+            for (int x = 0; x < board[0].length; x++) {
+                if (candidateBoard[y][x] != null && candidateBoard[y][x].size() > 1) {
+                    unknownCount++;
+                }
+            }
+        }
+        return unknownCount;
     }
 
     private Set<Integer> getCandidateValues(int y, int x, char[][] board) {
