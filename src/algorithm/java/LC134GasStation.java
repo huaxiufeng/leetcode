@@ -5,7 +5,7 @@ package algorithm.java;
  */
 public class LC134GasStation {
 
-    public int canCompleteCircuit(int[] gas, int[] cost) {
+    public int canCompleteCircuitBruteForce(int[] gas, int[] cost) {
         for (int i = 0; i < gas.length; i++) {
             if (doCanCompleteCircuit(i, gas, cost)) {
                 return i;
@@ -30,6 +30,29 @@ public class LC134GasStation {
             stationsLeft--;
         }
         return true;
+    }
+
+    /**
+     * If car starts at A and can not reach B. Any station between A and B
+     can not reach B.(B is the first station that A can not reach.)
+     If the total number of gas is bigger than the total number of cost. There must be a solution.
+     * @param gas
+     * @param cost
+     * @return
+     */
+    public int canCompleteCircuit(int[] gas, int[] cost) {
+        int start = 0;
+        int tank = 0;
+        int sum = 0;
+        for (int i = 0; i < gas.length; i++) {
+            tank += (gas[i] - cost[i]);
+            sum += (gas[i] - cost[i]);
+            if (tank < 0) {
+                start = i + 1;
+                tank = 0;
+            }
+        }
+        return sum >= 0 ? start : -1;
     }
 
     public static void main(String[] args) {
