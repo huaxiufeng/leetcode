@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Created by huaxiufeng on 16/11/7.
  */
-public class ProductOfArrayExceptSelf {
+public class LC238ProductOfArrayExceptSelf {
 
 //    public int[] productExceptSelf(int[] nums) {
 //        if (nums == null || nums.length == 0) {
@@ -48,7 +48,7 @@ public class ProductOfArrayExceptSelf {
     public static void main(String[] args) {
         int nums[] = new int[]{1, 2, 3, 4};
         //int nums[] = new int[]{0 , 0};
-        int[] result = new ProductOfArrayExceptSelf().productExceptSelf(nums);
+        int[] result = new LC238ProductOfArrayExceptSelf().productExceptSelf(nums);
         System.out.println(Arrays.toString(nums));
         System.out.println(Arrays.toString(result));
     }
