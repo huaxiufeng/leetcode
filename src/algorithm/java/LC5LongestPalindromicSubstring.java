@@ -18,7 +18,7 @@ package algorithm.java;
 
  * Created by huaxiufeng on 17/8/27.
  */
-public class LongestPalindromicSubstring {
+public class LC5LongestPalindromicSubstring {
 
     public String longestPalindrome(String s) {
         if (null == s || s.length() <= 1) {
@@ -50,7 +50,7 @@ public class LongestPalindromicSubstring {
     }
 
     public static void main(String[] args) {
-        LongestPalindromicSubstring solution = new LongestPalindromicSubstring();
+        LC5LongestPalindromicSubstring solution = new LC5LongestPalindromicSubstring();
         System.out.println(solution.longestPalindrome("babadada"));
         System.out.println(solution.longestPalindrome("abccba"));
         System.out.println(solution.longestPalindrome("cbbd"));
