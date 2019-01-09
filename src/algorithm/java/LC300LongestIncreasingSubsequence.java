@@ -30,20 +30,22 @@ public class LC300LongestIncreasingSubsequence {
         if (nums == null || nums.length == 0) {
             return 0;
         }
-        int[] lis = new int[nums.length]; // 保存最长递增子序列
+        int[] lis = new int[nums.length]; // 保存最长递增子序列，升序
         lis[0] = nums[0];
         int len = 1; // 最长递增子序列的长度
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] > lis[len-1]) {
                 lis[len++] = nums[i];
             } else {
-                int pos = findPositionToReplace(lis, 0, len - 1, nums[i]);
+                int pos = findPositionToReplaceSlow(lis, 0, len - 1, nums[i]);
                 lis[pos] = nums[i];
             }
         }
         return len;
     }
 
+    // 在递增子序列中找到替换的位置，替换后还是相同长度的递增子序列
+    // 也就是找出最小的大于等于X的位置
     private int findPositionToReplace(int[] arr, int low, int high, int x) {
         int mid;
         while (low <= high) {
@@ -54,6 +56,15 @@ public class LC300LongestIncreasingSubsequence {
                 low = mid + 1;
             } else {
                 return mid;
+            }
+        }
+        return low;
+    }
+
+    private int findPositionToReplaceSlow(int[] arr, int low, int high, int x) {
+        for (int i = low; i <= high; i++) {
+            if (arr[i] >= x) {
+                return i;
             }
         }
         return low;
