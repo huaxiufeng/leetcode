@@ -16,7 +16,7 @@ import java.util.Set;
 
  * Created by huaxiufeng on 17/8/27.
  */
-public class LongestSubstringWithoutRepeatingCharacters {
+public class LC3LongestSubstringWithoutRepeatingCharacters {
 
     /*
     brute force
@@ -61,7 +61,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
     }
 
     public static void main(String[] args) {
-        LongestSubstringWithoutRepeatingCharacters solution = new LongestSubstringWithoutRepeatingCharacters();
+        LC3LongestSubstringWithoutRepeatingCharacters solution = new LC3LongestSubstringWithoutRepeatingCharacters();
         System.out.println(solution.lengthOfLongestSubstring("au"));
         System.out.println(solution.lengthOfLongestSubstring("abcabcbb"));
         System.out.println(solution.lengthOfLongestSubstring("bbbbb"));
