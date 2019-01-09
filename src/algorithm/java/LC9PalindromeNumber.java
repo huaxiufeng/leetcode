@@ -5,7 +5,7 @@ package algorithm.java;
  *
  * Created by huaxiufeng on 17/9/3.
  */
-public class PalindromeNumber {
+public class LC9PalindromeNumber {
 
     public boolean isPalindrome(int x) {
         if (0 == x) {
@@ -24,7 +24,7 @@ public class PalindromeNumber {
     }
 
     public static void main(String[] args) {
-        PalindromeNumber solution = new PalindromeNumber();
+        LC9PalindromeNumber solution = new LC9PalindromeNumber();
         System.out.println(solution.isPalindrome(10));
         System.out.println(solution.isPalindrome(1221));
         System.out.println(solution.isPalindrome(121));
