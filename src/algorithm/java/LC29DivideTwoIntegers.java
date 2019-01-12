@@ -3,7 +3,7 @@ package algorithm.java;
 /**
  * Created by huaxiufeng on 18/11/3.
  */
-public class DivideTwoIntegers {
+public class LC29DivideTwoIntegers {
 
     public int divide(int dividend, int divisor) {
         boolean negative = (dividend > 0) ^ (divisor > 0);
@@ -33,7 +33,7 @@ public class DivideTwoIntegers {
     }
 
     public static void main(String[] args) {
-        DivideTwoIntegers solution = new DivideTwoIntegers();
+        LC29DivideTwoIntegers solution = new LC29DivideTwoIntegers();
         System.out.println(solution.divide(6, 3));
         System.out.println(solution.divide(-2147483648, -1));
         System.out.println(solution.divide(-7, 3));

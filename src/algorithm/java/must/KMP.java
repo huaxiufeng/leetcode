@@ -6,6 +6,9 @@ package algorithm.java.must;
 public class KMP {
 
     public int kmp(String text, String pattern) {
+        if (pattern == null || pattern.length() == 0) {
+            return 0;
+        }
         int i = 0;
         int j = 0;
         int[] next = getNext(pattern);
