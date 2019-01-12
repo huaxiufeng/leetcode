@@ -8,7 +8,7 @@ import algorithm.java.data.ListNode;
 /**
  * Created by huaxiufeng on 18/11/3.
  */
-public class MergeKSortedLists {
+public class LC23MergeKSortedLists {
 
     /**
      * 简单版本
@@ -96,7 +96,7 @@ public class MergeKSortedLists {
     }
 
     public static void main(String[] args) {
-        MergeKSortedLists solution = new MergeKSortedLists();
+        LC23MergeKSortedLists solution = new LC23MergeKSortedLists();
         ListNode result = solution.mergeKLists(new ListNode[] {
                 ListNode.fromVals(1,4,5),
                 ListNode.fromVals(1,3,4),
