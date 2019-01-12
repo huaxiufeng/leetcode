@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Created by huaxiufeng on 18/11/3.
  */
-public class NextPermutation {
+public class LC31NextPermutation {
 
     /**
      * 1, Find the largest index k such that a[k] < a[k + 1]. If no such index exists, the permutation is the last permutation.
@@ -52,7 +52,7 @@ public class NextPermutation {
     }
 
     public static void main(String[] args) {
-        NextPermutation solution = new NextPermutation();
+        LC31NextPermutation solution = new LC31NextPermutation();
         int[] nums = new int[]{5,1,1};
         solution.nextPermutation(nums);
         System.out.println(Arrays.toString(nums));
