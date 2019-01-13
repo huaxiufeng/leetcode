@@ -31,7 +31,7 @@ public class LC84LargestRectangleInHistogram {
         return maxArea;
     }
 
-    public int largestRectangleArea(int[] heights) {
+    public int largestRectangleAreaStack(int[] heights) {
         int len = heights.length;
         Stack<Integer> s = new Stack<>();
         int maxArea = 0;
@@ -49,6 +49,30 @@ public class LC84LargestRectangleInHistogram {
             }
         }
         System.out.println("over");
+        return maxArea;
+    }
+
+    public int largestRectangleArea(int[] heights) {
+        int[] lessFromLeft = new int[heights.length];
+        for (int i = 0; i < heights.length; i++) {
+            int p = i - 1;
+            while (p >= 0 && heights[p] >= heights[i]) {
+                p = lessFromLeft[p];
+            }
+            lessFromLeft[i] = p;
+        }
+        int[] lessFromRight = new int[heights.length];
+        for (int i = heights.length - 1; i >= 0; i--) {
+            int p = i + 1;
+            while (p < heights.length && heights[p] >= heights[i]) {
+                p = lessFromRight[p];
+            }
+            lessFromRight[i] = p;
+        }
+        int maxArea = heights[0];
+        for (int i = 0; i < heights.length; i++) {
+            maxArea = Math.max(maxArea, heights[i] * (lessFromRight[i] - lessFromLeft[i] - 1));
+        }
         return maxArea;
     }
 
