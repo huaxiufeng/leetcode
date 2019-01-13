@@ -14,7 +14,7 @@ import java.util.List;
  * return [1,6],[8,10],[15,18].
  * Created by huaxiufeng on 17/5/21.
  */
-public class MergeIntervals {
+public class LC56MergeIntervals {
 
     public List<Interval> merge(List<Interval> intervals) {
         if (null == intervals || intervals.size() <= 1) {
@@ -55,7 +55,7 @@ public class MergeIntervals {
         }
 
         long startTimeMillis = System.currentTimeMillis();
-        List<Interval> result = new MergeIntervals().merge(intervals);
+        List<Interval> result = new LC56MergeIntervals().merge(intervals);
         long endTimeMillis = System.currentTimeMillis();
 
         System.out.println("\nafter");
