@@ -5,7 +5,7 @@ import java.util.Stack;
 /**
  * Created by huaxiufeng on 18/10/3.
  */
-public class LargestRectangleinHistogram {
+public class LC84LargestRectangleInHistogram {
 
     public int largestRectangleArea0(int[] heights) {
         if (heights == null || heights.length == 0) {
@@ -53,9 +53,9 @@ public class LargestRectangleinHistogram {
     }
 
     public static void main(String[] args) {
-        LargestRectangleinHistogram solution = new LargestRectangleinHistogram();
+        LC84LargestRectangleInHistogram solution = new LC84LargestRectangleInHistogram();
+        System.out.println(solution.largestRectangleArea(new int[]{2, 1, 5, 6, 2, 3})); // 10
         System.out.println(solution.largestRectangleArea(new int[]{2, 1, 2})); // 3
         System.out.println(solution.largestRectangleArea(new int[]{0, 9})); // 9
-        System.out.println(solution.largestRectangleArea(new int[]{2, 1, 5, 6, 2, 3})); // 10
     }
 }
