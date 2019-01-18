@@ -1,8 +1,5 @@
 package algorithm.java;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 import algorithm.java.data.TreeLinkNode;
 
 /**
@@ -10,34 +7,42 @@ import algorithm.java.data.TreeLinkNode;
  */
 public class LC117PopulatingNextRightPointersInEachNodeII {
 
-    // 同LC116
     public void connect(TreeLinkNode root) {
         if (null == root) {
             return;
         }
-        Queue<TreeLinkNode> queue = new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            Queue<TreeLinkNode> nextQueue = new LinkedList<>();
-            TreeLinkNode nextQueueTail = null;
-            while (!queue.isEmpty()) {
-                TreeLinkNode node = queue.poll();
-                if (node.left != null) {
-                    if (null != nextQueueTail) {
-                        nextQueueTail.next = node.left;
+        TreeLinkNode levelStart = root;
+        TreeLinkNode nextLevelStart = null;
+        TreeLinkNode nextLevelEnd = null;
+        while (levelStart != null) {
+            TreeLinkNode cur = levelStart;
+            nextLevelStart = null;
+            nextLevelEnd = null;
+            while (cur != null) {
+                if (cur.left != null) {
+                    if (nextLevelStart == null) {
+                        nextLevelEnd = nextLevelStart = cur.left;
+                    } else {
+                        nextLevelEnd.next = cur.left;
+                        nextLevelEnd = nextLevelEnd.next;
                     }
-                    nextQueueTail = node.left;
-                    nextQueue.add(node.left);
                 }
-                if (node.right != null) {
-                    if (null != nextQueueTail) {
-                        nextQueueTail.next = node.right;
+                if (cur.right != null) {
+                    if (nextLevelStart == null) {
+                        nextLevelEnd = nextLevelStart = cur.right;
+                    } else {
+                        nextLevelEnd.next = cur.right;
+                        nextLevelEnd = nextLevelEnd.next;
                     }
-                    nextQueueTail = node.right;
-                    nextQueue.add(node.right);
                 }
+                cur = cur.next;
             }
-            queue = nextQueue;
+            levelStart = nextLevelStart;
         }
+    }
+
+    public static void main(String[] args) throws Exception {
+        LC117PopulatingNextRightPointersInEachNodeII solution = new LC117PopulatingNextRightPointersInEachNodeII();
+        solution.connect(TreeLinkNode.fromLevelSequence("[1,2,3,null,5,null,7]"));
     }
 }
