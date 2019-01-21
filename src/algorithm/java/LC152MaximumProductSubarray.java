@@ -9,8 +9,8 @@ public class LC152MaximumProductSubarray {
         if (nums == null || 0 == nums.length) {
             return 0;
         }
-        int[] max = new int[nums.length];
-        int[] min = new int[nums.length];
+        int[] max = new int[nums.length]; // 保存以num[i]结尾的子数组乘积的最大值
+        int[] min = new int[nums.length]; // 保存以num[i]结尾的子数组乘积的最小值
         max[0] = min[0] = nums[0];
         int result = max[0];
         for (int i = 1; i < nums.length; i++) {

@@ -11,6 +11,7 @@ public class LC130SurroundedRegions {
         }
         int height = board.length;
         int width = board[0].length;
+        // 从左右、上下的O向中间扩散DFS，把没有被包围的O改为*，那么剩下的O就可以直接改为X了
         for (int i = 0; i < height; i++) {
             dfs(board, i, 0);
             dfs(board, i, width - 1);
