@@ -39,18 +39,27 @@ public class LC221MaximalSquare {
     }
 
     public int maximalSquare(char[][] matrix) {
-        if (matrix.length == 0) { return 0; }
-        int m = matrix.length, n = matrix[0].length, result = 0;
-        int[][] b = new int[m + 1][n + 1];
-        for (int i = 1; i <= m; i++) {
-            for (int j = 1; j <= n; j++) {
-                if (matrix[i - 1][j - 1] == '1') {
-                    b[i][j] = Math.min(Math.min(b[i][j - 1], b[i - 1][j - 1]), b[i - 1][j]) + 1;
-                    result = Math.max(b[i][j], result);
+        if (null == matrix || matrix.length == 0 || matrix[0].length == 0) {
+            return 0;
+        }
+        int height = matrix.length;
+        int width = matrix[0].length;
+        int[][] dp = new int[height][width];
+        int maxLen = 0;
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (matrix[i][j] != '1') {
+                    continue;
                 }
+                if (i == 0 || j == 0) {
+                    dp[i][j] = 1;
+                } else {
+                    dp[i][j] = Math.min(dp[i - 1][j - 1], Math.min(dp[i][j - 1], dp[i - 1][j])) + 1;
+                }
+                maxLen = Math.max(dp[i][j], maxLen);
             }
         }
-        return result * result;
+        return maxLen * maxLen;
     }
 
     public static void main(String[] args) {
