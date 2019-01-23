@@ -5,6 +5,7 @@ package algorithm.java;
  */
 public class LC164MaximumGap {
 
+    // 桶排序 Radix Sort
     public int maximumGap(int[] nums) {
         if (nums == null || nums.length < 2) {
             return 0;
@@ -23,19 +24,15 @@ public class LC164MaximumGap {
 
         while (m / exp > 0) { // Go through all digits from LSB to MSB
             int[] count = new int[R];
-
             for (int i = 0; i < nums.length; i++) {
                 count[(nums[i] / exp) % 10]++;
             }
-
             for (int i = 1; i < count.length; i++) {
                 count[i] += count[i - 1];
             }
-
             for (int i = nums.length - 1; i >= 0; i--) {
                 aux[--count[(nums[i] / exp) % 10]] = nums[i];
             }
-
             for (int i = 0; i < nums.length; i++) {
                 nums[i] = aux[i];
             }
@@ -52,7 +49,7 @@ public class LC164MaximumGap {
 
     public static void main(String[] args) {
         LC164MaximumGap solution = new LC164MaximumGap();
-        System.out.println(solution.maximumGap(new int[]{3, 6, 9, 1})); // 3
+        System.out.println(solution.maximumGap(new int[]{13, 6, 23, 1})); // 3
         System.out.println(solution.maximumGap(new int[]{10})); // 0
     }
 }
