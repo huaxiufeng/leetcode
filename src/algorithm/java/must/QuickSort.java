@@ -1,50 +1,61 @@
 package algorithm.java.must;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by huaxiufeng on 18/11/5.
  */
 public class QuickSort {
 
-    public void quickSort(int[] arr) {
-        doQuickSort(arr, 0, arr.length - 1);
+    public void quickSort(int[] nums) {
+        doQuickSort(nums, 0, nums.length - 1);
     }
 
-    private void doQuickSort(int[] arr, int begin, int end) {
+    private void doQuickSort(int[] nums, int begin, int end) {
         if (begin < end) {
-            int k = partition(arr, begin, end);
-            doQuickSort(arr, begin, k - 1);
-            doQuickSort(arr, k + 1, end);
+            int k = partition(nums, begin, end);
+            doQuickSort(nums, begin, k - 1);
+            doQuickSort(nums, k + 1, end);
         }
     }
 
-    private int partition(int[] arr, int begin, int end) {
-        int pivot = arr[(begin + end) / 2];
-        int l = begin;
-        int h = end;
-        while (l < h) {
-            while (arr[l] < pivot && l < h) {
-                l++;
+    private int partition(int[] nums, int begin, int end) {
+        int lo = begin;
+        int hi = end;
+        // 第一个值作为枢纽
+        int pivot = nums[lo];
+        while (lo < hi) {
+            while (lo < hi && nums[hi] >= pivot) {
+                hi--;
             }
-            while (arr[h] > pivot && l < h) {
-                h--;
+            // 后半部分比枢纽小的，就放到前面去
+            nums[lo] = nums[hi];
+            while (lo < hi && nums[lo] <= pivot) {
+                lo++;
             }
-            swap(arr, l, h);
+            // 前半部分比枢纽大的，就放到后面去
+            nums[hi] = nums[lo];
         }
-        return l;
-    }
-
-    private void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+        // 把枢纽放到正确的位置
+        nums[lo] = pivot;
+        // 返回枢纽的位置
+        return lo;
     }
 
     public static void main(String[] args) {
         QuickSort solution = new QuickSort();
-        int[] arr = new int[]{4, 7, 2, 5, 3, 6, 1, 9, 8};
-        solution.quickSort(arr);
-        System.out.println(Arrays.toString(arr));
+        List<Integer> numList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            numList.add(i + 1);
+        }
+        for (int k = 0; k < 100; k++) { // 做100次测试
+            Collections.shuffle(numList);
+            int[] nums = numList.stream().mapToInt(Integer::intValue).toArray();
+            solution.quickSort(nums);
+            System.out.println(Arrays.toString(nums));
+        }
     }
 }
