@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
  */
 public class LC215KthLargestElementInAnArray {
 
-    public int findKthLargest(int[] nums, int k) {
+    public int findKthLargestHeap(int[] nums, int k) {
         PriorityQueue<Integer> heap = new PriorityQueue<>();
         for (int n : nums) {
             if (heap.size() < k) {
@@ -20,6 +20,39 @@ public class LC215KthLargestElementInAnArray {
             }
         }
         return heap.peek();
+    }
+
+    public int findKthLargest(int[] nums, int k) {
+        int lo = 0, hi = nums.length - 1;
+        k = nums.length - k;
+        while (lo < hi) {
+            int p = partition(nums, lo, hi);
+            if (p < k) {
+                lo = p + 1;
+            } else if (p > k) {
+                hi = p - 1;
+            } else {
+                break;
+            }
+        }
+        return nums[k];
+    }
+
+    private int partition(int[] nums, int begin, int end) {
+        int lo = begin, hi = end;
+        int pivot = nums[lo];
+        while (lo < hi) {
+            while (lo < hi && nums[hi] >= pivot) {
+                hi--;
+            }
+            nums[lo] = nums[hi];
+            while (lo < hi && nums[lo] <= pivot) {
+                lo++;
+            }
+            nums[hi] = nums[lo];
+        }
+        nums[lo] = pivot;
+        return lo;
     }
 
     public static void main(String[] args) {
