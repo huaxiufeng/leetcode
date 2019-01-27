@@ -6,6 +6,7 @@ package algorithm.java;
 public class LC164MaximumGap {
 
     // 桶排序 Radix Sort
+    // 适用于非负数
     public int maximumGap(int[] nums) {
         if (nums == null || nums.length < 2) {
             return 0;
