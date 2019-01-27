@@ -18,7 +18,7 @@ import algorithm.java.data.TreeNode;
 
  * Created by huaxiufeng on 17/8/6.
  */
-public class DiameterOfBinaryTree {
+public class LC543DiameterOfBinaryTree {
 
     public int diameterOfBinaryTree(TreeNode root) {
         if (null == root) {
@@ -38,7 +38,7 @@ public class DiameterOfBinaryTree {
     }
 
     public static void main(String[] args) throws Exception {
-        DiameterOfBinaryTree solution = new DiameterOfBinaryTree();
+        LC543DiameterOfBinaryTree solution = new LC543DiameterOfBinaryTree();
         System.out.println(solution.diameterOfBinaryTree(TreeNode.fromLevelSequence("[1,2,3,4,5,null,null]")));
     }
 }

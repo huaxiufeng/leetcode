@@ -15,7 +15,7 @@ import java.util.Map;
 
  * Created by huaxiufeng on 18/10/13.
  */
-public class SubarraySumEqualsK {
+public class LC560SubarraySumEqualsK {
 
     public int subarraySum0(int[] nums, int k) {
         if (null == nums || nums.length == 0) {
@@ -54,7 +54,7 @@ public class SubarraySumEqualsK {
     }
 
     public static void main(String[] args) {
-        SubarraySumEqualsK solution = new SubarraySumEqualsK();
+        LC560SubarraySumEqualsK solution = new LC560SubarraySumEqualsK();
         System.out.println(solution.subarraySum(new int[]{1,1,1}, 2));
     }
 }
