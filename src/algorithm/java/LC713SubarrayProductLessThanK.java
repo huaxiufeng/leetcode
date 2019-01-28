@@ -18,7 +18,7 @@ package algorithm.java;
 
  * Created by huaxiufeng on 18/10/13.
  */
-public class SubarrayProductLessThanK {
+public class LC713SubarrayProductLessThanK {
 
     public int numSubarrayProductLessThanKX(int[] nums, int k) {
         if (k == 0) return 0;
@@ -53,7 +53,7 @@ public class SubarrayProductLessThanK {
     }
 
     public static void main(String[] args) {
-        SubarrayProductLessThanK solution = new SubarrayProductLessThanK();
+        LC713SubarrayProductLessThanK solution = new LC713SubarrayProductLessThanK();
         System.out.println(solution.numSubarrayProductLessThanK(new int[]{10, 5, 2, 6}, 100));
         System.out.println(solution.numSubarrayProductLessThanK(new int[]{10, 5, 2, 6}, 1));
     }
