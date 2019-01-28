@@ -8,9 +8,9 @@ import java.util.Map;
 /**
  * Created by huaxiufeng on 18/10/13.
  */
-public class LetterCasePermutation {
+public class LC784LetterCasePermutation {
 
-    public List<String> letterCasePermutation(String S) {
+    public List<String> letterCasePermutation0(String S) {
         List<String> result = new ArrayList<>();
         Map<Integer, Integer> indexPosMap = new HashMap<>();
         int index = 0;
@@ -40,8 +40,29 @@ public class LetterCasePermutation {
         return result;
     }
 
+    public List<String> letterCasePermutation(String S) {
+        List<String> resultList = new ArrayList<>();
+        doLetterCasePermutation(resultList, new char[S.length()], S, 0);
+        return resultList;
+    }
+
+    private void doLetterCasePermutation(List<String> resultList, char[] chars, String S, int start) {
+        while (start < S.length() && !Character.isAlphabetic(S.charAt(start))) {
+            chars[start] = S.charAt(start);
+            start++;
+        }
+        if (start >= S.length()) {
+            resultList.add(new String(chars));
+            return;
+        }
+        chars[start] = Character.toLowerCase(S.charAt(start));
+        doLetterCasePermutation(resultList, chars, S, start + 1);
+        chars[start] = Character.toUpperCase(S.charAt(start));
+        doLetterCasePermutation(resultList, chars, S, start + 1);
+    }
+
     public static void main(String[] args) {
-        LetterCasePermutation solution = new LetterCasePermutation();
+        LC784LetterCasePermutation solution = new LC784LetterCasePermutation();
         System.out.println(solution.letterCasePermutation("a1b2").toString());
         System.out.println(solution.letterCasePermutation("12345").toString());
     }
