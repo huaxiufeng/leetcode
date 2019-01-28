@@ -31,7 +31,7 @@ import algorithm.java.data.TreeNode;
  *
  * Created by huaxiufeng on 17/8/6.
  */
-public class PathSum3 {
+public class LC437PathSum3 {
     public int pathSum(TreeNode root, int sum) {
         if (null == root) {
             return 0;
@@ -53,7 +53,7 @@ public class PathSum3 {
     }
 
     public static void main(String[] args) throws Exception {
-        PathSum3 solution = new PathSum3();
+        LC437PathSum3 solution = new LC437PathSum3();
         System.out.println(solution.pathSum(TreeNode.fromLevelSequence("[10,5,-3,3,2,null,11,3,-2,null,1,null,9]"), 8));
         System.out.println(solution.pathSum(TreeNode.fromLevelSequence("[1]"), 1));
     }
