@@ -7,7 +7,7 @@ import algorithm.java.data.TreeNode;
 /**
  * Created by huaxiufeng on 18/10/13.
  */
-public class InvertBinaryTree {
+public class LC226InvertBinaryTree {
 
     public TreeNode invertTree(TreeNode root) {
         if (null == root) {
@@ -31,7 +31,7 @@ public class InvertBinaryTree {
     }
 
     public static void main(String[] args) throws Exception {
-        InvertBinaryTree solution = new InvertBinaryTree();
+        LC226InvertBinaryTree solution = new LC226InvertBinaryTree();
         solution.invertTree(TreeNode.fromLevelSequence("[10,5,-3,3,2,null,11,3,-2,null,1,null,9]"));
     }
 }
