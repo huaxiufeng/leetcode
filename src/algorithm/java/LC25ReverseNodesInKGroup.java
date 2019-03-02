@@ -17,10 +17,9 @@ public class LC25ReverseNodesInKGroup {
         } else {
             ListNode nextHead = groupTail.next;
             groupTail.next = null;
-            head = reverse(head);
-            // TODO
-            findTail(head, k).next = reverseKGroup(nextHead, k);
-            return head;
+            ListNode newHead = reverse(head);
+            head.next = reverseKGroup(nextHead, k);
+            return newHead;
         }
     }
 
