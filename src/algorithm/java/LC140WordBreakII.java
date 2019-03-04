@@ -32,6 +32,36 @@ public class LC140WordBreakII {
         return resultList;
     }
 
+    /**
+     * Time Limit Exceeded
+     */
+    public List<String> wordBreak1(String s, List<String> wordDict) {
+        List<String> resultList = new ArrayList<>();
+        doWordBreak1(resultList, new ArrayList<>(), s, wordDict);
+        return resultList;
+    }
+
+    private void doWordBreak1(List<String> resultList, List<String> temp, String s, List<String> wordDict) {
+        if (s.length() == 0) {
+            StringBuilder builder = new StringBuilder();
+            for (int i = 0; i < temp.size(); i++) {
+                builder.append(temp.get(i));
+                if (i != temp.size() - 1) {
+                    builder.append(" ");
+                }
+            }
+            resultList.add(builder.toString());
+            return;
+        }
+        for (String word : wordDict) {
+            if (s.startsWith(word)) {
+                temp.add(word);
+                doWordBreak1(resultList, temp, s.substring(word.length()), wordDict);
+                temp.remove(temp.size() - 1);
+            }
+        }
+    }
+
     public static void main(String[] args) {
         LC140WordBreakII solution = new LC140WordBreakII();
         System.out.println(solution.wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", Arrays.asList("a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa")));
