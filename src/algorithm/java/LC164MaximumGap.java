@@ -31,6 +31,7 @@ public class LC164MaximumGap {
             for (int i = 1; i < count.length; i++) {
                 count[i] += count[i - 1];
             }
+            // 这里一定要从后向前，因为上一轮排序结束后，低位大的在后面
             for (int i = nums.length - 1; i >= 0; i--) {
                 aux[--count[(nums[i] / exp) % 10]] = nums[i];
             }
@@ -50,7 +51,7 @@ public class LC164MaximumGap {
 
     public static void main(String[] args) {
         LC164MaximumGap solution = new LC164MaximumGap();
-        System.out.println(solution.maximumGap(new int[]{13, 6, 23, 1})); // 3
+        System.out.println(solution.maximumGap(new int[]{13, 6, 23, 1, 5})); // 10
         System.out.println(solution.maximumGap(new int[]{10})); // 0
     }
 }
