@@ -9,7 +9,7 @@ import algorithm.java.data.TreeNode;
  */
 public class LC226InvertBinaryTree {
 
-    public TreeNode invertTree(TreeNode root) {
+    public TreeNode invertTree0(TreeNode root) {
         if (null == root) {
             return null;
         }
@@ -27,6 +27,17 @@ public class LC226InvertBinaryTree {
             node.left = node.right;
             node.right = temp;
         }
+        return root;
+    }
+
+    public TreeNode invertTree(TreeNode root) {
+        if (null == root) {
+            return null;
+        }
+        TreeNode left = root.left;
+        TreeNode right = root.right;
+        root.left = invertTree(right);
+        root.right = invertTree(left);
         return root;
     }
 
