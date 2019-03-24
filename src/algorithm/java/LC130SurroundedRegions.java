@@ -11,14 +11,15 @@ public class LC130SurroundedRegions {
         }
         int height = board.length;
         int width = board[0].length;
+        boolean[][] visited = new boolean[height][width];
         // 从左右、上下的O向中间扩散DFS，把没有被包围的O改为*，那么剩下的O就可以直接改为X了
         for (int i = 0; i < height; i++) {
-            dfs(board, i, 0);
-            dfs(board, i, width - 1);
+            dfs(board, visited, i, 0);
+            dfs(board, visited, i, width - 1);
         }
         for (int j = 0; j < width; j++) {
-            dfs(board, 0, j);
-            dfs(board, height - 1, j);
+            dfs(board, visited, 0, j);
+            dfs(board, visited, height - 1, j);
         }
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
@@ -31,15 +32,16 @@ public class LC130SurroundedRegions {
         }
     }
 
-    private void dfs(char[][] board, int i, int j) {
+    private void dfs(char[][] board, boolean[][] visited, int i, int j) {
         int height = board.length;
         int width = board[0].length;
-        if (i >= 0 && i < height && j >= 0 && j < width && board[i][j] == 'O') {
+        if (i >= 0 && i < height && j >= 0 && j < width && board[i][j] == 'O' && !visited[i][j]) {
+            visited[i][j] = true;
             board[i][j] = '*';
-            dfs(board, i - 1, j);
-            dfs(board, i + 1, j);
-            dfs(board, i, j - 1);
-            dfs(board, i, j + 1);
+            dfs(board, visited,i - 1, j);
+            dfs(board, visited, i + 1, j);
+            dfs(board, visited, i, j - 1);
+            dfs(board, visited, i, j + 1);
         }
     }
 

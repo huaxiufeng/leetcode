@@ -7,7 +7,7 @@ package algorithm.java;
 
  * Created by huaxiufeng on 17/7/2.
  */
-public class BitwiseANDofNumbersRange {
+public class LC201BitwiseANDofNumbersRange {
 
     public int rangeBitwiseAnd(int m, int n) {
         int x = 0;
@@ -28,7 +28,7 @@ public class BitwiseANDofNumbersRange {
     }
 
     public static void main(String[] args) {
-        BitwiseANDofNumbersRange solution = new BitwiseANDofNumbersRange();
+        LC201BitwiseANDofNumbersRange solution = new LC201BitwiseANDofNumbersRange();
         long startTime = System.currentTimeMillis();
         System.out.println(solution.rangeBitwiseAndBenchMark(1147483640, 2147483646));
         System.out.println("benchMark cost " + (System.currentTimeMillis() - startTime));
