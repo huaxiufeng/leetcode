@@ -16,7 +16,7 @@ package algorithm.java;
 
  * Created by huaxiufeng on 18/10/8.
  */
-public class LongestContinuousIncreasingSubsequence {
+public class LC674LongestContinuousIncreasingSubsequence {
 
     public int findLengthOfLCIS(int[] nums) {
         if (null == nums || nums.length == 0) {
@@ -38,7 +38,7 @@ public class LongestContinuousIncreasingSubsequence {
     }
 
     public static void main(String[] args) {
-        LongestContinuousIncreasingSubsequence solution = new LongestContinuousIncreasingSubsequence();
+        LC674LongestContinuousIncreasingSubsequence solution = new LC674LongestContinuousIncreasingSubsequence();
         System.out.println(solution.findLengthOfLCIS(new int[]{1,3,5,7}));
         System.out.println(solution.findLengthOfLCIS(new int[]{1,3,5,4,7}));
         System.out.println(solution.findLengthOfLCIS(new int[]{2,2,2,2,2}));
