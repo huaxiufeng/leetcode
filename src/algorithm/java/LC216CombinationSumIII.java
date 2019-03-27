@@ -15,12 +15,8 @@ public class LC216CombinationSumIII {
     }
 
     private void doCombinationSum3(List<List<Integer>> resultList, List<Integer> temp, int k, int n, int start) {
-        if (k == 1) {
-            if (n >= start && n <= 9) {
-                temp.add(n);
-                resultList.add(new ArrayList<>(temp));
-                temp.remove(temp.size() - 1);
-            }
+        if (k == 0 && n == 0) {
+            resultList.add(new ArrayList<>(temp));
         } else {
             for (int i = start; i <= 9; i++) {
                 temp.add(i);
