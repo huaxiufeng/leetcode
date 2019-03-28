@@ -25,7 +25,7 @@ package algorithm.java;
 
  * Created by huaxiufeng on 17/8/6.
  */
-public class IsSubsequence {
+public class LC392IsSubsequence {
 
     public boolean isSubsequence(String s, String t) {
         if (null == s || 0 == s.length()) {
@@ -46,9 +46,9 @@ public class IsSubsequence {
     }
 
     public static void main(String[] args) {
-        IsSubsequence solution = new IsSubsequence();
-        System.out.println(solution.isSubsequence("abc", "ahbgdc"));
-        System.out.println(solution.isSubsequence("acb", "ahbgdc"));
-        System.out.println(solution.isSubsequence("axc", "ahbgdc"));
+        LC392IsSubsequence solution = new LC392IsSubsequence();
+        System.out.println(solution.isSubsequence("abc", "ahbgdc")); // true
+        System.out.println(solution.isSubsequence("acb", "ahbgdc")); // false
+        System.out.println(solution.isSubsequence("axc", "ahbgdc")); // false
     }
 }

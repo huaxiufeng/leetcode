@@ -12,7 +12,7 @@ package algorithm.java;
  *
  * Created by huaxiufeng on 17/5/21.
  */
-public class AddStrings {
+public class LC415AddStrings {
 
     public String addStrings(String num1, String num2) {
         StringBuilder sb = new StringBuilder();
@@ -49,7 +49,7 @@ public class AddStrings {
     }
 
     public static void main(String[] args) {
-        AddStrings solution = new AddStrings();
+        LC415AddStrings solution = new LC415AddStrings();
         System.out.println(solution.addStrings("123", "1"));
         System.out.println(solution.addStrings("78", "9"));
         System.out.println(solution.addStrings("98", "9"));

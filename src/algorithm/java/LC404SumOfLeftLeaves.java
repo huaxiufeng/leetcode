@@ -5,7 +5,7 @@ import algorithm.java.data.TreeNode;
 /**
  * Created by amyhuiye on 2017/5/28.
  */
-public class SumOfLeftLeaves {
+public class LC404SumOfLeftLeaves {
 
     public int sumOfLeftLeaves(TreeNode root) {
         if (null == root) {
@@ -29,7 +29,7 @@ public class SumOfLeftLeaves {
         root.right.left = new TreeNode(15);
         root.right.right = new TreeNode(7);
 
-        SumOfLeftLeaves solution = new SumOfLeftLeaves();
+        LC404SumOfLeftLeaves solution = new LC404SumOfLeftLeaves();
         System.out.println(solution.sumOfLeftLeaves(root));
     }
 }

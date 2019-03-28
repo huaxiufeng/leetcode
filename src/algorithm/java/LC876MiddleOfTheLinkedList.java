@@ -5,7 +5,7 @@ import algorithm.java.data.ListNode;
 /**
  * Created by huaxiufeng on 18/10/8.
  */
-public class MiddleoftheLinkedList {
+public class LC876MiddleOfTheLinkedList {
 
     public ListNode middleNode(ListNode head) {
         if (null == head || null == head.next) {

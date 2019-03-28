@@ -37,7 +37,7 @@ import algorithm.java.data.ListNode;
 
  * Created by huaxiufeng on 18/10/8.
  */
-public class LinkedListComponents {
+public class LC817LinkedListComponents {
 
     public int numComponents(ListNode head, int[] G) {
         if (null == head || null == G) {
@@ -64,5 +64,10 @@ public class LinkedListComponents {
             result++;
         }
         return result;
+    }
+
+    public static void main(String[] args) {
+        LC817LinkedListComponents solution = new LC817LinkedListComponents();
+        System.out.println(solution.numComponents(ListNode.fromVals(0,1,2,3), new int[]{0,1,3})); // 2
     }
 }

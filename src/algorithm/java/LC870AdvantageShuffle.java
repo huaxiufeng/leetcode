@@ -29,7 +29,7 @@ import java.util.List;
 
  * Created by huaxiufeng on 18/10/11.
  */
-public class AdvantageShuffle {
+public class LC870AdvantageShuffle {
 
     /**
      * 运用田忌赛马的思路，如果A中有相应的higher元素，使用最小的higher元素。否则使用A中最小的元素 :)
@@ -122,7 +122,7 @@ public class AdvantageShuffle {
     }
 
     public static void main(String[] args) {
-        AdvantageShuffle solution = new AdvantageShuffle();
+        LC870AdvantageShuffle solution = new LC870AdvantageShuffle();
         //System.out.println(Arrays.toString(solution.advantageCount(new int[]{0}, new int[]{0})));
         System.out.println(Arrays.toString(solution.advantageCount(new int[]{2,7,11,15}, new int[]{1,10,4,11})));
         System.out.println(Arrays.toString(solution.advantageCount(new int[]{12,24,8,32}, new int[]{13,25,32,11})));

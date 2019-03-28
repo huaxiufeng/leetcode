@@ -15,7 +15,7 @@ package algorithm.java;
 
  * Created by huaxiufeng on 17/8/9.
  */
-public class MaximumProductOfThreeNumbers {
+public class LC628MaximumProductOfThreeNumbers {
 
     public int maximumProduct(int[] nums) {
         int max1 = Integer.MIN_VALUE, max2 = Integer.MIN_VALUE, max3 = Integer.MIN_VALUE;
@@ -41,8 +41,7 @@ public class MaximumProductOfThreeNumbers {
     }
 
     public static void main(String[] args) {
-        MaximumProductOfThreeNumbers solution = new MaximumProductOfThreeNumbers();
-        int nums[] = {1,2,3,4};
-        System.out.println(solution.maximumProduct(nums));
+        LC628MaximumProductOfThreeNumbers solution = new LC628MaximumProductOfThreeNumbers();
+        System.out.println(solution.maximumProduct(new int[]{1,2,3,4})); // 24
     }
 }

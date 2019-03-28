@@ -13,7 +13,7 @@ package algorithm.java;
  Note: You may assume the string contain only lowercase letters.
  * Created by amyhuiye on 2017/5/24.
  */
-public class FirstUniqueCharacterInAString {
+public class LC387FirstUniqueCharacterInAString {
 
     public int firstUniqChar(String s) {
         if (null == s || 0 == s.length()) {
@@ -36,7 +36,7 @@ public class FirstUniqueCharacterInAString {
     }
 
     public static void main(String[] args) {
-        FirstUniqueCharacterInAString solution = new FirstUniqueCharacterInAString();
+        LC387FirstUniqueCharacterInAString solution = new LC387FirstUniqueCharacterInAString();
         System.out.println(solution.firstUniqChar("leetcode"));
         System.out.println(solution.firstUniqChar("loveleetcode"));
         System.out.println(solution.firstUniqChar("aaaa"));

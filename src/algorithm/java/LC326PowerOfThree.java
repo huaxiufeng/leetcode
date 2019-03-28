@@ -8,7 +8,7 @@ package algorithm.java;
 
  * Created by huaxiufeng on 17/8/10.
  */
-public class PowerOfThree {
+public class LC326PowerOfThree {
 
     public boolean isPowerOfThree(int n) {
         if (n > 1) {
@@ -24,7 +24,7 @@ public class PowerOfThree {
     }
 
     public static void main(String[] args) {
-        PowerOfThree solution = new PowerOfThree();
+        LC326PowerOfThree solution = new LC326PowerOfThree();
         System.out.println(solution.isPowerOfThree(54));
         System.out.println(solution.isPowerOfThree(27));
     }

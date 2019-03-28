@@ -22,7 +22,7 @@ package algorithm.java;
 
  * Created by huaxiufeng on 17/9/3.
  */
-public class RegularExpressionMatching {
+public class LC10RegularExpressionMatching {
 
     public boolean isMatch(String s, String p) {
         if (s == null || p == null) {
@@ -56,7 +56,7 @@ public class RegularExpressionMatching {
     }
 
     public static void main(String[] args) {
-        RegularExpressionMatching solution = new RegularExpressionMatching();
+        LC10RegularExpressionMatching solution = new LC10RegularExpressionMatching();
         System.out.println(solution.isMatch("aa", "a"));
         System.out.println(solution.isMatch("aa", "aa"));
         System.out.println(solution.isMatch("aa", "a*"));

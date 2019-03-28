@@ -3,7 +3,7 @@ package algorithm.java;
 /**
  * Created by huaxiufeng on 18/11/3.
  */
-public class RemoveElement {
+public class LC27RemoveElement {
 
     public int removeElement(int[] nums, int val) {
         if (null == nums || nums.length == 0) {
@@ -22,7 +22,7 @@ public class RemoveElement {
     }
 
     public static void main(String[] args) {
-        RemoveElement solution = new RemoveElement();
+        LC27RemoveElement solution = new LC27RemoveElement();
         int[] nums = new int[]{3, 2, 2, 3};
         int n = solution.removeElement(nums, 2);
         for (int i = 0; i < n; i++) {

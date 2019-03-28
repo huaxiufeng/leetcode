@@ -5,7 +5,7 @@ import algorithm.java.data.TreeNode;
 /**
  * Created by huaxiufeng on 18/10/3.
  */
-public class IncreasingOrderSearchTree {
+public class LC897IncreasingOrderSearchTree {
 
     public TreeNode increasingBST(TreeNode root) {
         if (null == root) {

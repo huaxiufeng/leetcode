@@ -20,7 +20,7 @@ import java.util.Set;
 
  * Created by huaxiufeng on 17/8/6.
  */
-public class ReverseVowelsOfAString {
+public class LC345ReverseVowelsOfAString {
 
     public String reverseVowels(String s) {
         if (null == s || s.length() <= 1) {
@@ -44,7 +44,7 @@ public class ReverseVowelsOfAString {
     }
 
     public static void main(String[] args) {
-        ReverseVowelsOfAString solution = new ReverseVowelsOfAString();
+        LC345ReverseVowelsOfAString solution = new LC345ReverseVowelsOfAString();
         System.out.println(solution.reverseVowels("leetcode"));
         System.out.println(solution.reverseVowels("aA"));
     }

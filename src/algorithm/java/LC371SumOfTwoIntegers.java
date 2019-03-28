@@ -3,7 +3,7 @@ package algorithm.java;
 /**
  * Created by amyhuiye on 2017/5/24.
  */
-public class SumOfTwoIntegers {
+public class LC371SumOfTwoIntegers {
 
     public int getSum(int a, int b) {
         if (0 == b) {
@@ -15,7 +15,7 @@ public class SumOfTwoIntegers {
     }
 
     public static void main(String[] args) {
-        SumOfTwoIntegers solution = new SumOfTwoIntegers();
+        LC371SumOfTwoIntegers solution = new LC371SumOfTwoIntegers();
         System.out.println(solution.getSum(1, 2));
         System.out.println(solution.getSum(11, 3));
         System.out.println(solution.getSum(98, 16));

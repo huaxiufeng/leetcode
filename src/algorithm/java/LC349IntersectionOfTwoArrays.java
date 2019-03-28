@@ -15,7 +15,7 @@ import java.util.Set;
 
  * Created by huaxiufeng on 17/8/6.
  */
-public class IntersectionOfTwoArrays {
+public class LC349IntersectionOfTwoArrays {
     public int[] intersection(int[] nums1, int[] nums2) {
         Set<Integer> nums1Set = new HashSet<>();
         Set<Integer> resultSet = new HashSet<>();

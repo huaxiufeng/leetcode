@@ -5,7 +5,7 @@ import algorithm.java.data.ListNode;
 /**
  * Created by huaxiufeng on 18/11/3.
  */
-public class RemoveNthNodeFromEndofList {
+public class LC19RemoveNthNodeFromEndOfList {
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
         if (null == head) {
@@ -30,7 +30,7 @@ public class RemoveNthNodeFromEndofList {
     public static void main(String[] args) {
         ListNode listNode = ListNode.fromVals(1);
         System.out.println(listNode.toString());
-        RemoveNthNodeFromEndofList solution = new RemoveNthNodeFromEndofList();
+        LC19RemoveNthNodeFromEndOfList solution = new LC19RemoveNthNodeFromEndOfList();
         listNode = solution.removeNthFromEnd(listNode, 1);
         System.out.println(listNode.toString());
     }

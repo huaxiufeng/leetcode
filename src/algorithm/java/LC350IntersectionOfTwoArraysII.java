@@ -21,7 +21,7 @@ import java.util.Map;
 
  * Created by huaxiufeng on 17/8/6.
  */
-public class IntersectionOfTwoArrays2 {
+public class LC350IntersectionOfTwoArraysII {
     public int[] intersect(int[] nums1, int[] nums2) {
         if (null == nums1 || 0 == nums1.length) {
             return nums1;

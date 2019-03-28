@@ -64,11 +64,9 @@ import algorithm.java.data.TreeNode;
  * <p>
  * Created by huaxiufeng on 17/8/24.
  */
-public class MaximumWidthOfBinaryTree {
+public class LC662MaximumWidthOfBinaryTree {
 
-    /*
-    * Memory issue
-    public int widthOfBinaryTree(TreeNode root) {
+    public int widthOfBinaryTreeMemoryOut(TreeNode root) {
         if (null == root) {
             return 0;
         }
@@ -122,7 +120,6 @@ public class MaximumWidthOfBinaryTree {
         }
         return maxWidth;
     }
-    */
 
     public int widthOfBinaryTree(TreeNode root) {
         if (null == root) {
@@ -153,9 +150,9 @@ public class MaximumWidthOfBinaryTree {
     }
 
     public static void main(String[] args) throws Exception {
-        MaximumWidthOfBinaryTree solution = new MaximumWidthOfBinaryTree();
-        System.out.println(solution.widthOfBinaryTree(TreeNode.fromLevelSequence("[1]")));
-        System.out.println(solution.widthOfBinaryTree(TreeNode.fromLevelSequence("[1,3,2,5,3,null,9]")));
-        System.out.println(solution.widthOfBinaryTree(TreeNode.fromLevelSequence("[1,3,2,5,null,null,null]")));
+        LC662MaximumWidthOfBinaryTree solution = new LC662MaximumWidthOfBinaryTree();
+        System.out.println(solution.widthOfBinaryTree(TreeNode.fromLevelSequence("[1]"))); // 1
+        System.out.println(solution.widthOfBinaryTree(TreeNode.fromLevelSequence("[1,3,2,5,3,null,9]"))); // 4
+        System.out.println(solution.widthOfBinaryTree(TreeNode.fromLevelSequence("[1,3,2,5,null,null,null]"))); // 2
     }
 }

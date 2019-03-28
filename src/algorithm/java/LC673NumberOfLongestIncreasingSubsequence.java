@@ -15,7 +15,7 @@ package algorithm.java;
 
  * Created by huaxiufeng on 18/10/9.
  */
-public class NumberofLongestIncreasingSubsequence {
+public class LC673NumberOfLongestIncreasingSubsequence {
 
     public int findNumberOfLIS(int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -49,9 +49,9 @@ public class NumberofLongestIncreasingSubsequence {
     }
 
     public static void main(String[] args) {
-        NumberofLongestIncreasingSubsequence solution = new NumberofLongestIncreasingSubsequence();
-        System.out.println(solution.findNumberOfLIS(new int[]{1,2}));
-        System.out.println(solution.findNumberOfLIS(new int[]{2,2,2,2,2}));
-        System.out.println(solution.findNumberOfLIS(new int[]{1,3,5,4,7}));
+        LC673NumberOfLongestIncreasingSubsequence solution = new LC673NumberOfLongestIncreasingSubsequence();
+        System.out.println(solution.findNumberOfLIS(new int[]{1,2})); // 1
+        System.out.println(solution.findNumberOfLIS(new int[]{2,2,2,2,2})); // 5
+        System.out.println(solution.findNumberOfLIS(new int[]{1,3,5,4,7})); // 2
     }
 }

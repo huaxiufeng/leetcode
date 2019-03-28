@@ -3,7 +3,7 @@ package algorithm.java;
 /**
  * Created by huaxiufeng on 17/8/6.
  */
-public class ReverseString {
+public class LC344ReverseString {
 
     public String reverseString(String s) {
         if (null == s || s.length() <= 1) {
@@ -17,7 +17,7 @@ public class ReverseString {
     }
 
     public static void main(String[] args) {
-        ReverseString solution = new ReverseString();
+        LC344ReverseString solution = new LC344ReverseString();
         System.out.println(solution.reverseString("hello"));
     }
 }
