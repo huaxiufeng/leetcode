@@ -6,12 +6,14 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 
 /**
  * 总数n，每页的数量是k的话
  * 时间复杂度是O(n)
  * 空间复杂度是O(n)
+ * 这个方法不行!!!
  *
  * Created by huaxiufeng on 19/3/24.
  */
@@ -21,7 +23,7 @@ public class HostCrowdingAirbnbN {
         int pageCount = (results.size() - 1) / resultsPerPage + 1;
         LinkedList<String>[] pages = new LinkedList[pageCount];
         Set<Integer>[] hostIdSets = new Set[pageCount];
-        LinkedList<String> pendingResults = new LinkedList<>();
+        Queue<String> pendingResults = new LinkedList<>();
         for (int i = 0; i < pageCount; i++) {
             pages[i] = new LinkedList<>();
             hostIdSets[i] = new HashSet<>();
@@ -47,14 +49,13 @@ public class HostCrowdingAirbnbN {
 
         for (int i = cursorPageIndex; i < pageCount; i++) {
             while (pages[i].size() < resultsPerPage && pendingResults.size() > 0) {
-                pages[i].add(pendingResults.removeFirst());
+                pages[i].add(pendingResults.poll());
             }
         }
 
         List<String> pagedResults = new LinkedList<>();
         for (int i = 0; i < pageCount; i++) {
             pagedResults.addAll(pages[i]);
-            pages[i].clear();
             if (i < pageCount - 1) {
                 pagedResults.add("");
             }
