@@ -8,36 +8,30 @@ import algorithm.java.data.TreeNode;
 public class LC222CountCompleteTreeNodes {
 
     public int countNodes(TreeNode root) {
-        if (null == root) {
-            return 0;
+        int leftLength = leftLength(root);
+        int rightLength = rightLength(root);
+        if (leftLength == rightLength) {
+            return (1 << leftLength) - 1;
         }
-        int height = 0;
-        TreeNode temp = root;
-        while (temp.left != null) {
-            temp = temp.left;
-            height++;
-        }
-        return ((1 << height) - 1) + countLastLevelNodes(root, height);
+        return 1 + countNodes(root.left) + countNodes(root.right);
     }
 
-    private int countLastLevelNodes(TreeNode root, int height) {
-        if (null == root) {
-            return 0;
+    private int leftLength(TreeNode root) {
+        int length = 0;
+        while (root != null) {
+            length++;
+            root = root.left;
         }
-        if (height == 0) {
-            return 1;
+        return length;
+    }
+
+    private int rightLength(TreeNode root) {
+        int length = 0;
+        while (root != null) {
+            length++;
+            root = root.right;
         }
-        TreeNode midNode = root.left;
-        int k = height - 1;
-        while (k > 0 && midNode != null) {
-            midNode = midNode.right;
-            k--;
-        }
-        if (midNode == null) {
-            return countLastLevelNodes(root.left, height - 1);
-        } else {
-            return countLastLevelNodes(root.right, height - 1) + (1 << (height - 1));
-        }
+        return length;
     }
 
     public static void main(String[] args) throws Exception {

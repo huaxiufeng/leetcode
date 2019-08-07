@@ -30,6 +30,11 @@ public class LC203RemoveLinkedListElements {
 
     public static void main(String[] args) {
         LC203RemoveLinkedListElements solution = new LC203RemoveLinkedListElements();
+        System.out.println(solution.removeElements(ListNode.fromVals(1,2,3,4,5,6), 3)); // 1->2->4->5->6
+        System.out.println(solution.removeElements(ListNode.fromVals(1,2,3,4,5,6), 1)); // 2->3->4->5->6
+        System.out.println(solution.removeElements(ListNode.fromVals(1,2,3,4,5,6), 6)); // 1->2->3->4->5
+        System.out.println(solution.removeElements(ListNode.fromVals(1,2,3,3,4,5,6), 3)); // 1->2->4->5->6
+        System.out.println(solution.removeElements(ListNode.fromVals(1,2,1,3,4,5,6), 1)); // 2->3->4->5->6
         System.out.println(solution.removeElements(ListNode.fromVals(1,2,6,3,4,5,6), 6)); // 1->2->3->4->5
     }
 }
