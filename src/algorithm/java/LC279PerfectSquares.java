@@ -35,9 +35,9 @@ public class LC279PerfectSquares {
 
     public static void main(String[] args) {
         LC279PerfectSquares solution = new LC279PerfectSquares();
+        System.out.println(solution.numSquares(13)); // 2
         System.out.println(solution.numSquares(6337)); // 2
         System.out.println(solution.numSquares(4)); // 1
         System.out.println(solution.numSquares(12)); // 3
-        System.out.println(solution.numSquares(13)); // 2
     }
 }

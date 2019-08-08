@@ -42,6 +42,6 @@ public class LC347TopKFrequentElements {
         LC347TopKFrequentElements solution = new LC347TopKFrequentElements();
         System.out.println(solution.topKFrequent(new int[]{1,1,1,2,2,3}, 2)); // 1,2
         System.out.println(solution.topKFrequent(new int[]{1}, 1)); // 1
-        System.out.println(solution.topKFrequent(new int[]{1,1,1,1,2,2,2,3,3,3}, 2)); // 1
+        System.out.println(solution.topKFrequent(new int[]{1,1,1,1,2,2,2,3,3,3}, 2)); // 1,2,3
     }
 }

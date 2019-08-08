@@ -1,8 +1,5 @@
 package algorithm.java;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * You are playing the following Bulls and Cows game with your friend:
  * You write down a number and ask your friend to guess what the number is.
@@ -21,8 +18,8 @@ public class LC299BullsAndCows {
     public String getHint(String secret, String guess) {
         int len = secret.length();
         int a = 0, b = 0;
-        int[] sCountArr = new int[26];
-        int[] gCountArr = new int[26];
+        int[] sCountArr = new int[10];
+        int[] gCountArr = new int[10];
         for (int i = 0; i < len; i++) {
             char sc = secret.charAt(i);
             char gc = guess.charAt(i);
@@ -33,7 +30,7 @@ public class LC299BullsAndCows {
                 gCountArr[gc - '0']++;
             }
         }
-        for (int i = 0; i < 26; i ++) {
+        for (int i = 0; i < 10; i ++) {
             if (sCountArr[i] > 0 && gCountArr[i] > 0) {
                 b += Math.min(sCountArr[i], gCountArr[i]);
             }
