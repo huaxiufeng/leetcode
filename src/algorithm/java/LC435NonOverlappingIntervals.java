@@ -14,35 +14,33 @@ import java.util.Comparator;
  */
 public class LC435NonOverlappingIntervals {
 
+    /**
+     * Actually, the problem is the same as "Given a collection of intervals, find the maximum number of intervals that are non-overlapping."
+     * (the classic Greedy problem: Interval Scheduling). With the solution to that problem, guess how do we get the minimum number of intervals to remove? : )
+     *
+     * Sorting Interval.end in ascending order is O(nlogn), then traverse intervals array to get the maximum number of non-overlapping intervals is O(n). Total is O(nlogn).
+     */
     public int eraseOverlapIntervals(int[][] intervals) {
         if (null == intervals || intervals.length == 0) {
             return 0;
         }
-        // 排序
-        // 1) sort by end, smaller end in front
-        // 2) if end is same, sort by start, bigger start in front
+
         Arrays.sort(intervals, new Comparator<int[]>() {
             @Override
             public int compare(int[] o1, int[] o2) {
-                int cmp = Integer.compare(o1[1], o2[1]);
-                if (0 == cmp) {
-                    cmp = Integer.compare(o2[0], o1[0]);
-                }
-                return cmp;
+                return Integer.compare(o1[1], o2[1]);
             }
         });
+        int end = intervals[0][1];
+        int count = 1;
 
-        int end = Integer.MIN_VALUE;
-        int count = 0;
-        for (int[] interval : intervals) {
-            if (interval[0] >= end) {
-                end = interval[1];
-            } else {
+        for (int i = 1; i < intervals.length; i++) {
+            if (intervals[i][0] >= end) {
+                end = intervals[i][1];
                 count++;
             }
         }
-
-        return count;
+        return intervals.length - count;
     }
 
     public static void main(String[] args) {
