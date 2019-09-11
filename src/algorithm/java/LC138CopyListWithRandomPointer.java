@@ -3,52 +3,62 @@ package algorithm.java;
 import java.util.HashMap;
 import java.util.Map;
 
-import algorithm.java.data.RandomListNode;
-
 /**
  * Created by huaxiufeng on 18/10/8.
  */
 public class LC138CopyListWithRandomPointer {
 
-    public RandomListNode copyRandomList(RandomListNode head) {
+    public Node copyRandomList(Node head) {
         if (null == head) {
             return null;
         }
-        Map<RandomListNode, RandomListNode> nodeMap = new HashMap<>();
-        RandomListNode copiedHead = new RandomListNode(0);
-        RandomListNode copiedTail = copiedHead;
-        while (head != null) {
-            RandomListNode node;
-            if (nodeMap.containsKey(head)) {
-                node = nodeMap.get(head);
-            } else {
-                node = new RandomListNode(head.label);
-                nodeMap.put(head, node);
-            }
-            if (head.random != null) {
-                RandomListNode randomNode;
-                if (nodeMap.containsKey(head.random)) {
-                    randomNode = nodeMap.get(head.random);
-                } else {
-                    randomNode = new RandomListNode(head.random.label);
-                    nodeMap.put(head.random, randomNode);
-                }
-                node.random = randomNode;
-            }
-            copiedTail.next = node;
+        Map<Node, Node> map = new HashMap<>();
+        Node copiedHead = new Node(head.val);
+        map.put(head, copiedHead);
+        Node copiedTail = copiedHead;
+        Node cursor = head.next;
+        while (cursor != null) {
+            copiedTail.next = new Node(cursor.val);
             copiedTail = copiedTail.next;
-            head = head.next;
+            map.put(cursor, copiedTail);
+            cursor = cursor.next;
         }
-        return copiedHead.next;
+        cursor = head;
+        while (cursor != null) {
+            Node copiedNode = map.get(cursor);
+            if (cursor.random != null) {
+                copiedNode.random = map.get(cursor.random);
+            }
+            cursor = cursor.next;
+        }
+        return copiedHead;
     }
 
     public static void main(String[] args) {
         LC138CopyListWithRandomPointer solution = new LC138CopyListWithRandomPointer();
-        RandomListNode head = new RandomListNode(1);
-        RandomListNode tail = new RandomListNode(2);
+        Node head = new Node(1);
+        Node tail = new Node(2);
         head.random = tail;
         tail.random = head;
         head.next = tail;
         solution.copyRandomList(head);
+    }
+
+    static class Node {
+        public int val;
+        public Node next;
+        public Node random;
+
+        public Node() {}
+
+        public Node(int _val) {
+            val = _val;
+        }
+
+        public Node(int _val,Node _next,Node _random) {
+            val = _val;
+            next = _next;
+            random = _random;
+        }
     }
 }

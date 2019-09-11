@@ -25,6 +25,18 @@ public class LC139WordBreak {
         return dp[s.length()];
     }
 
+    public boolean wordBreakTimeout(String s, List<String> wordDict) {
+        if (null == s || s.length() == 0) {
+            return true;
+        }
+        for (String word : wordDict) {
+            if (s.startsWith(word) && wordBreak(s.substring(word.length()), wordDict)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         LC139WordBreak solution = new LC139WordBreak();
         System.out.println(solution.wordBreak("applepenapple", Arrays.asList("apple", "pen")));

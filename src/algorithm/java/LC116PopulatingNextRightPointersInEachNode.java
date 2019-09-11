@@ -15,28 +15,23 @@ public class LC116PopulatingNextRightPointersInEachNode {
             return;
         }
         Queue<TreeLinkNode> queue = new LinkedList<>();
-        queue.add(root);
+        queue.offer(root);
         while (!queue.isEmpty()) {
-            Queue<TreeLinkNode> nextQueue = new LinkedList<>();
-            TreeLinkNode nextQueueTail = null;
-            while (!queue.isEmpty()) {
+            int len = queue.size();
+            TreeLinkNode pre = null;
+            for (int i = 0; i < len; i++) {
                 TreeLinkNode node = queue.poll();
+                if (pre != null) {
+                    pre.next = node;
+                }
+                pre = node;
                 if (node.left != null) {
-                    if (null != nextQueueTail) {
-                        nextQueueTail.next = node.left;
-                    }
-                    nextQueueTail = node.left;
-                    nextQueue.add(node.left);
+                    queue.offer(node.left);
                 }
                 if (node.right != null) {
-                    if (null != nextQueueTail) {
-                        nextQueueTail.next = node.right;
-                    }
-                    nextQueueTail = node.right;
-                    nextQueue.add(node.right);
+                    queue.offer(node.right);
                 }
             }
-            queue = nextQueue;
         }
     }
 
